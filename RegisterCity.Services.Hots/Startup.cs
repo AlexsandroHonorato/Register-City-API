@@ -47,15 +47,12 @@ namespace RegisterCity.Services.Hots {
 
             services.AddScoped<ICityServices, CityServices>();
             services.AddScoped<ICityRepository, CityRepository>();
-
-
         }
 
         private void ConfigureAutoMapper(IServiceCollection services) {
             MapperConfiguration AutoMapperConfig = new AutoMapper.MapperConfiguration(cfg => {
-                cfg.CreateMap<CityCommand, CityViewModel>().ReverseMap();
-                cfg.CreateMap<CityViewModel, City>().ReverseMap();
-
+               cfg.CreateMap<CityCommand, CityViewModel>().ReverseMap();
+               cfg.CreateMap<City, CityViewModel>().ReverseMap();
             });
 
             IMapper mapper = AutoMapperConfig.CreateMapper();
